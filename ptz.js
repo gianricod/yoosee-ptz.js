@@ -8,7 +8,7 @@ Use: node ptz.js <ip>  <UP|DWON|LEFT|RIGHT>
 var net = require('net');
 
 var client = new net.Socket();
-client.connect(554, '192.168.2.15', function() {
+client.connect(554,process.argv[2], function() {
 	console.log('Connected');
 	client.write("SETUP rtsp://"+process.argv[2]+"/onvif1/track1 RTSP/1.0\r\n"+
 								"CSeq: 1\r\n"+
